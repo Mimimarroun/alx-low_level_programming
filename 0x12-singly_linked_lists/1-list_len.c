@@ -3,15 +3,21 @@ include "lists.h"
 
 /**
  * list_len - size of a list_t
- * @h: struct list_t, first node
+ * @h: input list
  * Return: number of nodes
  */
 
 size_t list_len(const list_t *h)
 {
 	int i;
+	const list_t *temp;
 
-	for (i = 0; h; i++, h = h->next)
-		;
+	i = 0;
+	temp = h;
+	while (temp != NULL)
+	{
+		i++;
+		temp = temp->next;
+	}
 	return (i);
 }
