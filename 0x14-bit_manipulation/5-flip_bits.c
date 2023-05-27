@@ -9,14 +9,15 @@
 
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	int count = 0, check;
+	unsigned long int xor_result = n ^ m;
+	unsigned int flip_count = 0;
 
-	check = (n ^ m);
-	while (check)
+	/* Count the number of set bits in the XOR result */
+	while (xor_result)
 	{
-		count += (check & 1);
-		check >>= 1;
+		flip_count += xor_result & 1;
+		xor_result >>= 1;
 	}
-	return (count);
 
+	return (flip_count);
 }
